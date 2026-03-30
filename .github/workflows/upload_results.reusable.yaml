@@ -51,6 +51,7 @@ permissions:
 
 jobs:
   upload_test_results:
+    if: ${{ !contains(fromJSON('["dependabot[bot]", "renovate[bot]", "snyk-bot", "allcontributors[bot]"]'), github.actor) }}
     name: Upload Test Results
     runs-on: ubuntu-latest
     timeout-minutes: 10
