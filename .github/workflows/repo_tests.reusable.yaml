@@ -19,6 +19,7 @@ permissions:
 
 jobs:
   plugins_test:
+    if: ${{ !contains(fromJSON('["dependabot[bot]", "renovate[bot]", "snyk-bot", "allcontributors[bot]"]'), github.actor) }}
     name: Plugin Tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
