@@ -9,6 +9,7 @@ jobs:
   # Run tests against all linters for snapshots and latest version as they exist on main
   # This job is used to diagnose plugin config health in advance of a release
   linter_tests_main:
+    if: ${{ !contains(fromJSON('["dependabot[bot]", "renovate[bot]", "snyk-bot", "allcontributors[bot]"]'), github.actor) }}
     name: Linter Tests Main
     runs-on: windows-latest
     timeout-minutes: 90
@@ -54,6 +55,7 @@ jobs:
           trunk-prod-token: ${{ secrets.TRUNK_ORG_PROD_TOKEN }}
 
   tool_tests_main:
+    if: ${{ !contains(fromJSON('["dependabot[bot]", "renovate[bot]", "snyk-bot", "allcontributors[bot]"]'), github.actor) }}
     name: Tool Tests Main
     runs-on: windows-latest
     timeout-minutes: 90

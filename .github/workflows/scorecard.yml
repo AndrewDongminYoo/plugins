@@ -20,6 +20,7 @@ permissions: read-all
 
 jobs:
   analysis:
+    if: ${{ !contains(fromJSON('["dependabot[bot]", "renovate[bot]", "snyk-bot", "allcontributors[bot]"]'), github.actor) }}
     name: Scorecard analysis
     runs-on: ubuntu-latest
     permissions:

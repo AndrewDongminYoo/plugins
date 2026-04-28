@@ -8,6 +8,7 @@ permissions: read-all
 
 jobs:
   trunk_check:
+    if: ${{ !contains(fromJSON('["dependabot[bot]", "renovate[bot]", "snyk-bot", "allcontributors[bot]"]'), github.actor) }}
     name: Trunk Check Annotate
     runs-on: ubuntu-latest
     permissions:

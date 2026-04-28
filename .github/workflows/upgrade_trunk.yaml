@@ -9,6 +9,7 @@ permissions: read-all
 
 jobs:
   trunk_upgrade:
+    if: ${{ !contains(fromJSON('["dependabot[bot]", "renovate[bot]", "snyk-bot", "allcontributors[bot]"]'), github.actor) }}
     name: Upgrade Trunk
     runs-on: ubuntu-latest
     permissions:
